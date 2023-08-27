@@ -1,0 +1,119 @@
+@keyframes rotate {
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f2f7;
+  font-family: "Euclid Circular A", "Poppins";
+  color: #3a334e;
+  animation: rotate 1s infinite alternate linear;
+}
+
+.card {
+  width: 25rem;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  text-align: center;
+
+  &__logo {
+    width: 15rem;
+    margin-bottom: 1.25rem;
+  }
+
+  &__title {
+    font-size: 2.25rem;
+    margin: 0 0 1.875rem;
+  }
+
+  &__form {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__toggle {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    translate: 0 -50%;
+    width: 30px;
+    height: 30px;
+    background-image: url("../../assets/svgs/show.svg");
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &.showing {
+      background-image: url("../../assets/svgs/hide.svg");
+    }
+  }
+
+  &__control {
+    border: 0;
+    outline: none;
+    width: 100%;
+    height: 3.5rem;
+    padding: 0rem 1rem;
+    border-radius: 0.375rem;
+    background: #f4f5f7;
+    color: #5a4f79;
+    font-family: inherit;
+    font-size: 1.125rem;
+    transition: 0.4s;
+
+    &:focus {
+      border: 0.0625rem solid rgb(0 0 0 / 30%);
+    }
+
+    &::placeholder {
+      color: #aaa7bc;
+    }
+
+    &--btn {
+      cursor: pointer;
+      width: 100%;
+      height: 3.5rem;
+      padding: 0 1rem;
+      background: #1c98dd;
+      color: #f9f9f9;
+      border: 0;
+      border-radius: 0.375rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.125rem;
+      transition: all 0.375s;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__logIn {
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      color: #1c98dd;
+    }
+  }
+
+  .password {
+    position: relative;
+  }
+}

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card">
+        <img src="../../assets/svgs/logo.svg" class="card__logo" alt="signup-logo" />
+        <h2 class="card__title">{{ isLogin ? "Log In" : "Sign Up" }}</h2>
+        <form class="form card__form" (ngSubmit)="submitForm()" #form="ngForm">
+            <input spellcheck="false" class="card__control email" id="email" name="email" type="email"
+                placeholder="Email" ngModel #email="ngModel" required />
+            <div class="password">
+                <input spellcheck="false" class="card__control" id="password" name="password" type="password"
+                    placeholder="Password" ngModel #password="ngModel" autocomplete="off" required />
+                <button class="card__toggle" type="button" id="toggleElem" (click)="togglePassword()"></button>
+            </div>
+            <button class="card__control--btn" type="submit" [disabled]="!form.valid">
+                {{ isLogin ? "Log In" : "Sign Up" }}
+            </button>
+        </form>
+        <div *ngIf="!isLogin">
+            Already have an account?
+            <strong class="card__logIn" (click)="changeFormAction()">Log in here</strong>
+        </div>
+        <div *ngIf="isLogin">
+            Don't have an account?
+            <strong class="card__logIn" (click)="changeFormAction()">Sign Up here</strong>
+        </div>
+    </div>
+</div>
