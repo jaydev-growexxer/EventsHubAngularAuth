@@ -12,10 +12,30 @@ import { NgRxPageComponent } from './ng-rx-page/ng-rx-page.component';
 import { CouterControlsComponent } from './couter-controls/couter-controls.component';
 import { CouterOutputsComponent } from './couter-outputs/couter-outputs.component';
 import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './store/counter.reducer';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, DashbaordComponent, WebChatComponent, NgRxPageComponent, CouterControlsComponent, CouterOutputsComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, StoreModule.forRoot({}, {})],
+  declarations: [
+    AppComponent,
+    RegisterComponent,
+    DashbaordComponent,
+    WebChatComponent,
+    NgRxPageComponent,
+    CouterControlsComponent,
+    CouterOutputsComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    StoreModule.forRoot(
+      {
+        counter: counterReducer,
+      },
+      {}
+    ),
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
