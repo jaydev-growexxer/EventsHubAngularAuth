@@ -7,10 +7,15 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { DashbaordComponent } from './dashbaord/dashbaord.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { WebChatComponent } from './web-chat/web-chat.component';
+import { NgRxPageComponent } from './ng-rx-page/ng-rx-page.component';
+import { CouterControlsComponent } from './couter-controls/couter-controls.component';
+import { CouterOutputsComponent } from './couter-outputs/couter-outputs.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, DashbaordComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  declarations: [AppComponent, RegisterComponent, DashbaordComponent, WebChatComponent, NgRxPageComponent, CouterControlsComponent, CouterOutputsComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, StoreModule.forRoot({}, {})],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

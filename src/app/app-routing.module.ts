@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { DashbaordComponent } from './dashbaord/dashbaord.component';
 import { authGuard } from './guards/auth.guard';
+import { WebChatComponent } from './web-chat/web-chat.component';
+import { NgRxPageComponent } from './ng-rx-page/ng-rx-page.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,15 @@ const routes: Routes = [
   {
     path: 'authenticate',
     component: RegisterComponent,
+  },
+  {
+    path: 'webchat',
+    component: WebChatComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'ngrx',
+    component: NgRxPageComponent,
   },
   { path: '**', component: DashbaordComponent, canActivate: [authGuard] },
 ];
